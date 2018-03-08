@@ -5,5 +5,13 @@
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	font-weight: bold;
+
+	&:hover {
+		color: #f8f8f8;
+		text-decoration: none;
+	}
 }
 
+.align-center {
+	text-align: center;
+}
