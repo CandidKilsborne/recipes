@@ -15,4 +15,9 @@ class RecipeTest < ActiveSupport::TestCase
     assert_not @recipe.valid?
   end
 
+  test "description should be present" do
+    @recipe.description = " "
+    assert_not @recipe.valid?
+  end
+
 end
