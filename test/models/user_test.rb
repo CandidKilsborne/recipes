@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ChefTest < ActiveSupport::TestCase
+class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(name: "Test", email: "test@test.com")
@@ -28,6 +28,13 @@ class ChefTest < ActiveSupport::TestCase
   test "email should be less than 255 characters" do
     @user.email = "a" * 250 + "@example.com"
     assert_not @user.valid?
+  end
+
+  test "email should be unique and case insensitive" do
+    duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert_not duplicate_user.valid?
   end
 
 end
